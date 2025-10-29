@@ -1,14 +1,13 @@
-# Use official lightweight Java 21 image
-FROM eclipse-temurin:21-jdk-alpine
-
-# Set working directory inside container
+# Stage 1: Build the app
+FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
+COPY . .
+RUN ./mvnw clean package -DskipTests
 
-# Copy the JAR file into the container
-COPY target/backend-crud-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose the default Spring Boot port
+# Stage 2: Run the app
+FROM eclipse-temurin:21-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/target/backend-crud-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Command to run the application
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
