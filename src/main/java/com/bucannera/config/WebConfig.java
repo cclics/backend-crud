@@ -11,9 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Apply to all endpoints
                 //.allowedOrigins("http://localhost") // Allow requests from this origin
-                .allowedOrigins("https://crud-app-izl7.onrender.com") // Allow requests from this origin
-
-
+                .allowedOrigins("https://crud-app-car.netlify.app") // Allow requests from this origin
                 .allowedMethods("GET", "POST", "PUT", "DELETE") // Allowed HTTP methods
                 .allowedHeaders("*"); // Allowed headers
     }
