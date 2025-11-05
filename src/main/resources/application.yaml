@@ -2,6 +2,16 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
+  application:
+    name: ${APP_NAME}
+  datasource:
+    username: ${POSTGRES_USER}
+    url: ${POSTGRES_URL}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
 server:
-  port: ${PORT:10000}
-
+  port: ${APP_SERVER_PORT}
+frontend.url: ${FRONTEND_URL}
