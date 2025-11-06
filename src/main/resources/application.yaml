@@ -12,16 +12,6 @@ spring:
     password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
-    hikari:
-      maximum-pool-size: 10
-      minimum-idle: 2
-      idle-timeout: 30000
-      connection-timeout: 20000
-      # Explicit SSL enforcement (redundant but clear)
-      data-source-properties:
-        ssl: true
-        sslmode: require
-        channelBinding: require
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
@@ -31,7 +21,4 @@ spring:
         format_sql: true
     show-sql: true
 
-server:
-  port: ${APP_SERVER_PORT}
 
-frontend.url: ${FRONTEND_URL}

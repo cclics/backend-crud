@@ -9,5 +9,6 @@ FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/target/backend-crud-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 10000
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
-
+# Set the profile for production environment
+# original: ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar", "--spring.profiles.active=prod"]

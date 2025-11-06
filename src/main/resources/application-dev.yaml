@@ -1,0 +1,15 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: ${POSTGRES_URL}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    #driver-class-name: org.postgresql.Driver
+
+server:
+  port: ${APP_SERVER_PORT}
+
+frontend.url: ${FRONTEND_URL}
