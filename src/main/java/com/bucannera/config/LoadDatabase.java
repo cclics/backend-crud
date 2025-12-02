@@ -24,17 +24,8 @@ public class LoadDatabase {
             log.info("Preloading " + repository.save(new Post("Football happiness", "People is happy.")));
             log.info("Preloading " + repository.save(new Post("The life of Jane Goodall", "The scientist of chimps.")));
 
-            log.info("Preloading2 " + repository2.save(new Street("010","Rua das Acacias","Petropolis")));
-            log.info("Preloading2 " + repository2.save(new Street("011", "Rua Calogeras", "Rio de Janeiro")));
+            log.info("Preloading2 " + repository2.save(new Street(10,"Rua das Acacias","Petropolis")));
+            log.info("Preloading2 " + repository2.save(new Street(11, "Rua Calogeras", "Rio de Janeiro")));
         };
     }
-
-    //@Bean
-   // CommandLineRunner initDatabase2(StreetRepository repository2) {
-
-    //    return args -> {
-      //      log.info("Preloading2 " + repository2.save(new Street("","","Football happiness", "People is happy.")));
-      //      log.info("Preloading2 " + repository2.save(new Street("The life of Jane Goodall", "The scientist of chimps.")));
-       // };
-   // }
 }

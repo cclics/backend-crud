@@ -10,13 +10,13 @@ import java.util.Objects;
 public class Street {
     private @Id
     @GeneratedValue Long id;
-    private String streetId;
+    private int streetId;
     private String streetName;
     private String streetCity;
 
     Street() {}
 
-    public Street(String streetId, String streetName, String streetCity) {
+    public Street(int streetId, String streetName, String streetCity) {
         this.streetId = streetId;
         this.streetName = streetName;
         this.streetCity = streetCity;
@@ -30,11 +30,11 @@ public class Street {
         this.id = id;
     }
 
-    public String getStreetId() {
+    public int getStreetId() {
         return streetId;
     }
 
-    public void setStreetId(String streetId) {
+    public void setStreetId(int streetId) {
         this.streetId = streetId;
     }
 
