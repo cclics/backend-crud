@@ -2,7 +2,9 @@ package com.bucannera.post;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 class PostController {
@@ -21,8 +23,8 @@ class PostController {
     }
     // end::get-aggregate-root[]
 
-    @PostMapping("/posts")
-    Post newPost(@RequestBody Post newPost) {
+    @PostMapping(value = "/posts", consumes = "application/json", produces = "application/json")
+    public Post newPost(@RequestBody Post newPost) {
         return repository.save(newPost);
     }
 
@@ -44,9 +46,11 @@ class PostController {
                     post.setBody(newPost.getBody());
                     return repository.save(post);
                 })
-                .orElseGet(() -> {
-                    return repository.save(newPost);
-                });
+                //.orElseGet(() -> {
+                 //   return repository.save(newPost);
+               // });
+               //Return 404 if the post does not exist (REST best-practice) instead of creating a new post
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping("/posts/{id}")

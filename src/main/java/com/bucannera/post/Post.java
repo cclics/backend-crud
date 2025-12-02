@@ -7,7 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-class Post {
+public class Post {
 
     private @Id
     @GeneratedValue Long id;
@@ -16,7 +16,7 @@ class Post {
 
     Post() {}
 
-    Post(String title, String body) {
+    public Post(String title, String body) {
 
         this.title = title;
         this.body = body;
